@@ -3,7 +3,7 @@ export function Footer() {
     <footer 
       className="border-t mt-auto"
       style={{
-        background: 'linear-gradient(135deg, #2F205E, #241849)',
+        background: '#2F205E',
         borderColor: 'rgba(255, 255, 255, 0.1)'
       }}
     >

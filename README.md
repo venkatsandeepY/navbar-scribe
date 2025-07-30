@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# ETEMS Dashboard
 
-## Project info
+**Enterprise Status Monitoring System**
 
-**URL**: https://lovable.dev/projects/6f68f404-d74b-424b-a7f0-e404ca07c6f1
+A modern React-based dashboard application for monitoring enterprise systems and status.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Responsive Design**: Works on desktop and mobile devices
+- **Modern UI**: Clean, professional interface with dark theme
+- **Navigation**: Collapsible sidebar with smooth transitions
+- **Routing**: React Router integration for seamless navigation
+- **Status Monitoring**: Real-time system status tracking
+- **Reports**: Comprehensive reporting system
+- **Feedback**: User feedback collection and management
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6f68f404-d74b-424b-a7f0-e404ca07c6f1) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (version 16 or higher)
+- npm or yarn
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd navbar-scribe
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install dependencies:
+```bash
+npm install
+```
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions
+└── ui/            # UI component library
+```
 
-This project is built with:
+## Technologies Used
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **React Router** - Navigation
+- **Lucide React** - Icons
+- **Radix UI** - Accessible components
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/6f68f404-d74b-424b-a7f0-e404ca07c6f1) and click on Share -> Publish.
+### Vercel
 
-## Can I connect a custom domain to my Lovable project?
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
-Yes, you can!
+### Netlify
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Build the project: `npm run build`
+2. Upload the `dist` folder to Netlify
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For support and questions, please contact the ETEMS team.

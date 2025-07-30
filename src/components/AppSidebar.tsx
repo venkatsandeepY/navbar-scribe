@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Home, Activity, FileText, MessageSquare, ChevronDown } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -24,23 +24,20 @@ const navigationItems = [
 export function AppSidebar() {
   const { state } = useSidebar();
   const location = useLocation();
-  const currentPath = location.pathname;
   const collapsed = state === "collapsed";
-
-  const isActive = (path: string) => currentPath === path;
 
   return (
     <Sidebar
-      className={`${collapsed ? "w-16" : "w-64"} transition-smooth`}
+      className={`${collapsed ? "w-16" : "w-64"} transition-all duration-300 ease-in-out`}
       style={{
-        background: 'linear-gradient(135deg, hsl(252 47% 22%), hsl(252 47% 15%))',
+        background: '#2F205E',
         borderRight: '1px solid rgba(255, 255, 255, 0.1)'
       }}
       collapsible="icon"
     >
       <SidebarContent 
         className="bg-transparent"
-        style={{ background: 'linear-gradient(135deg, hsl(252 47% 22%), hsl(252 47% 15%))' }}
+        style={{ background: '#2F205E' }}
       >
         {/* Brand Section */}
         {!collapsed && (
@@ -53,39 +50,29 @@ export function AppSidebar() {
         )}
 
         <SidebarGroup className="px-3 py-4">
-          {!collapsed && (
-            <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider font-medium mb-2">
-              Navigation
-            </SidebarGroupLabel>
-          )}
-
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
+            <SidebarMenu className="space-y-2">
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild 
-                    className="w-full hover:bg-white/10 data-[active=true]:bg-white/15 data-[active=true]:text-white"
+                    className="w-full"
                   >
                     <NavLink
                       to={item.url}
-                      end
-                      className={({ isActive }) => 
-                        `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-300 ease-in-out ${
-                          isActive 
-                            ? "bg-white/15 text-white font-semibold shadow-lg border-l-4 border-white/50 transform scale-105" 
-                            : "text-white/70 hover:bg-white/10 hover:text-white hover:transform hover:scale-102"
-                        }`
-                      }
-                      style={({ isActive }) => ({
-                        background: isActive 
-                          ? 'linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05))'
-                          : 'transparent'
-                      })}
+                      end={item.url === "/"}
+                      className={({ isActive }) => {
+                        const isActiveState = isActive || (item.url === "/" && location.pathname === "/");
+                        return `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out text-white ${
+                          isActiveState
+                            ? "bg-white/20 font-semibold shadow-lg shadow-black/10" 
+                            : "bg-transparent hover:bg-white/5 hover:shadow-md hover:shadow-white/5"
+                        }`;
+                      }}
                     >
-                      <item.icon className={`h-5 w-5 ${collapsed ? 'mx-auto' : ''}`} />
+                      <item.icon className={`h-5 w-5 transition-colors duration-200 ${collapsed ? 'mx-auto' : ''}`} />
                       {!collapsed && (
-                        <span className="text-sm font-medium">{item.title}</span>
+                        <span className="text-sm font-medium transition-colors duration-200">{item.title}</span>
                       )}
                     </NavLink>
                   </SidebarMenuButton>

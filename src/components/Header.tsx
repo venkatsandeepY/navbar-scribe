@@ -1,18 +1,17 @@
-import { Search, Bell, User, Menu } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export function Header() {
   return (
-    <header className="bg-nav-gradient border-b border-glass shadow-soft">
+    <header className="border-b border-glass shadow-soft" style={{ background: '#2F205E' }}>
       <div className="flex items-center justify-between px-6 py-4">
         {/* Left Section - Sidebar Trigger & Brand */}
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
             size="icon"
-            className="text-primary-foreground hover:bg-nav-hover transition-smooth h-7 w-7"
+            className="text-white hover:bg-white/10 transition-smooth h-7 w-7"
             onClick={() => {
               const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]') as HTMLButtonElement;
               if (sidebarTrigger) {
@@ -22,20 +21,8 @@ export function Header() {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <div className="text-primary-foreground">
-            <h1 className="text-xl font-bold tracking-wide">ESQM</h1>
-            <p className="text-xs text-primary-foreground/70">(DLIFE)</p>
-          </div>
-        </div>
-
-        {/* Center Section - Search Bar */}
-        <div className="flex-1 max-w-md mx-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Search..."
-              className="pl-10 bg-search border-search focus:ring-primary focus:border-primary transition-smooth"
-            />
+          <div className="text-white">
+            <h1 className="text-xl font-bold tracking-wide">ESQM (DLIFE)</h1>
           </div>
         </div>
 
@@ -44,19 +31,19 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="text-primary-foreground hover:bg-nav-hover transition-smooth"
+            className="text-white hover:bg-white/10 transition-smooth"
           >
             <Bell className="h-5 w-5" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="text-primary-foreground hover:bg-nav-hover transition-smooth"
+            className="text-white hover:bg-white/10 transition-smooth"
           >
             <User className="h-5 w-5" />
           </Button>
           <Button
-            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-smooth font-medium px-6"
+            className="bg-white text-[#2F205E] hover:bg-white/90 transition-smooth font-medium px-6"
           >
             DISCOVER
           </Button>
