@@ -26,7 +26,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -67,6 +69,27 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'nav-gradient': 'var(--nav-gradient)',
+				'glass': 'linear-gradient(135deg, var(--glass-bg), var(--glass-border))'
+			},
+			backgroundColor: {
+				'nav-hover': 'hsl(var(--nav-hover))',
+				'search': 'hsl(var(--search-bg))',
+				'glass': 'var(--glass-bg)'
+			},
+			borderColor: {
+				'search': 'hsl(var(--search-border))',
+				'glass': 'var(--glass-border)'
+			},
+			boxShadow: {
+				'elegant': 'var(--shadow-elegant)',
+				'soft': 'var(--shadow-soft)'
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
+				'bounce': 'var(--transition-bounce)'
 			},
 			keyframes: {
 				'accordion-down': {
