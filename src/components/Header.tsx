@@ -1,4 +1,4 @@
-import { Search, Bell, User } from "lucide-react";
+import { Search, Bell, User, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -9,7 +9,19 @@ export function Header() {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Left Section - Sidebar Trigger & Brand */}
         <div className="flex items-center gap-4">
-          <SidebarTrigger className="text-primary-foreground hover:bg-nav-hover transition-smooth" />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-primary-foreground hover:bg-nav-hover transition-smooth h-7 w-7"
+            onClick={() => {
+              const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]') as HTMLButtonElement;
+              if (sidebarTrigger) {
+                sidebarTrigger.click();
+              }
+            }}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
           <div className="text-primary-foreground">
             <h1 className="text-xl font-bold tracking-wide">ESQM</h1>
             <p className="text-xs text-primary-foreground/70">(DLIFE)</p>
@@ -50,6 +62,8 @@ export function Header() {
           </Button>
         </div>
       </div>
+      {/* Hidden sidebar trigger for functionality */}
+      <SidebarTrigger className="hidden" />
     </header>
   );
 }

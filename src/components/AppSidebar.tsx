@@ -30,20 +30,19 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
   const isExpanded = navigationItems.some((item) => isActive(item.url));
 
-  const getNavClass = ({ isActive }: { isActive: boolean }) =>
-    isActive 
-      ? "bg-nav-hover text-primary-foreground font-medium shadow-soft" 
-      : "text-primary-foreground/70 hover:bg-nav-hover hover:text-primary-foreground transition-smooth";
-
   return (
     <Sidebar
-      className={`${collapsed ? "w-16" : "w-64"} bg-nav-gradient border-r border-glass transition-smooth`}
+      className={`${collapsed ? "w-16" : "w-64"} transition-smooth`}
+      style={{
+        background: 'linear-gradient(135deg, #2F205E, #241849)',
+        borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+      }}
       collapsible="icon"
     >
       <SidebarContent className="bg-transparent">
         {/* Brand Section */}
         {!collapsed && (
-          <div className="p-6 border-b border-glass">
+          <div className="p-6 border-b" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
             <div className="text-primary-foreground">
               <h2 className="text-lg font-bold tracking-wide">ESQM</h2>
               <p className="text-xs text-primary-foreground/70">(DLIFE)</p>
@@ -53,7 +52,7 @@ export function AppSidebar() {
 
         <SidebarGroup className="px-3 py-4">
           {!collapsed && (
-            <SidebarGroupLabel className="text-primary-foreground/60 text-xs uppercase tracking-wider font-medium mb-2">
+            <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider font-medium mb-2">
               Navigation
             </SidebarGroupLabel>
           )}
@@ -67,7 +66,11 @@ export function AppSidebar() {
                       to={item.url}
                       end
                       className={({ isActive }) => 
-                        `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-smooth ${getNavClass({ isActive })}`
+                        `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-smooth ${
+                          isActive 
+                            ? "bg-white/10 text-white font-medium shadow-lg" 
+                            : "text-white/70 hover:bg-white/5 hover:text-white transition-smooth"
+                        }`
                       }
                     >
                       <item.icon className={`h-5 w-5 ${collapsed ? 'mx-auto' : ''}`} />
