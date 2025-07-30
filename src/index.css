@@ -53,6 +53,10 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
+    /* Navigation specific styles */
+    --nav-active-bg: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    --nav-hover-bg: rgba(255,255,255,0.1);
+
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;

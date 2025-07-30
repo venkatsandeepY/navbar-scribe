@@ -28,18 +28,20 @@ export function AppSidebar() {
   const collapsed = state === "collapsed";
 
   const isActive = (path: string) => currentPath === path;
-  const isExpanded = navigationItems.some((item) => isActive(item.url));
 
   return (
     <Sidebar
       className={`${collapsed ? "w-16" : "w-64"} transition-smooth`}
       style={{
-        background: 'linear-gradient(135deg, #2F205E, #241849)',
+        background: 'linear-gradient(135deg, hsl(252 47% 22%), hsl(252 47% 15%))',
         borderRight: '1px solid rgba(255, 255, 255, 0.1)'
       }}
       collapsible="icon"
     >
-      <SidebarContent className="bg-transparent">
+      <SidebarContent 
+        className="bg-transparent"
+        style={{ background: 'linear-gradient(135deg, hsl(252 47% 22%), hsl(252 47% 15%))' }}
+      >
         {/* Brand Section */}
         {!collapsed && (
           <div className="p-6 border-b" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
@@ -61,17 +63,25 @@ export function AppSidebar() {
             <SidebarMenu className="space-y-1">
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="w-full">
+                  <SidebarMenuButton 
+                    asChild 
+                    className="w-full hover:bg-white/10 data-[active=true]:bg-white/15 data-[active=true]:text-white"
+                  >
                     <NavLink
                       to={item.url}
                       end
                       className={({ isActive }) => 
-                        `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-smooth ${
+                        `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-300 ease-in-out ${
                           isActive 
-                            ? "bg-white/10 text-white font-medium shadow-lg" 
-                            : "text-white/70 hover:bg-white/5 hover:text-white transition-smooth"
+                            ? "bg-white/15 text-white font-semibold shadow-lg border-l-4 border-white/50 transform scale-105" 
+                            : "text-white/70 hover:bg-white/10 hover:text-white hover:transform hover:scale-102"
                         }`
                       }
+                      style={({ isActive }) => ({
+                        background: isActive 
+                          ? 'linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05))'
+                          : 'transparent'
+                      })}
                     >
                       <item.icon className={`h-5 w-5 ${collapsed ? 'mx-auto' : ''}`} />
                       {!collapsed && (
